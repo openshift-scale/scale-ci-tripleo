@@ -49,3 +49,10 @@
   authorized_key:
     user: root
     key: "{{ lookup('file', lookup('env','PUBLIC_KEY')| default('~/.ssh/id_rsa.pub', true)) }}"
+
+# Due to Ansible 2.8 synchronize module does not seem to work if ansible_ssh_pass is used
+# Once key is exchanged (above task) we no longer need the ansible_ssh_pass variable
+# See https://github.com/ansible/ansible/issues/56629
+- name: Remove any password set via ansible_ssh_pass
+  set_fact:
+    ansible_ssh_pass: ""
