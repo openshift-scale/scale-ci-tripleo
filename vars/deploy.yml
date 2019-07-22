@@ -109,6 +109,7 @@ external_network_setup: "{{ lookup('env', 'OSP_EXTERNAL_NETWORK_SETUP')|default(
 
 # Settings for both Network Setups
 dns_server: "{{ lookup('env', 'OSP_DNS_SERVER') }}"
+use_local_dns_server: "{{ lookup('env', 'OSP_USE_LOCAL_DNS_SERVER')|default(false, true) }}"
 external_network_pool_start: "{{ lookup('env', 'OSP_EXTERNAL_NET_POOL_START')|default('172.21.0.3', true) }}"
 external_network_pool_end: "{{ lookup('env', 'OSP_EXTERNAL_NET_POOL_END')|default('172.21.0.254', true) }}"
 external_network_gateway: "{{ lookup('env', 'OSP_EXTERNAL_NET_GATEWAY')|default('172.21.0.1', true) }}"

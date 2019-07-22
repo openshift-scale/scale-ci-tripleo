@@ -20,8 +20,6 @@ overcloud_tht_files:
       dest: /home/stack/templates/environments/args.yaml
     - src: files/compute-params.yaml
       dest: /home/stack/templates/environments/compute-params.yaml
-    - src: files/controller-params.yaml
-      dest: /home/stack/templates/environments/controller-params.yaml
     - src: files/disable-notifications.yaml
       dest: /home/stack/templates/disable-notifications.yaml
     - src: files/firstboot-env.yaml
@@ -67,3 +65,5 @@ overcloud_tht_templates:
       dest: /home/stack/templates/environments/neutron-firewall.yaml
     - src: templates/network-environment.yaml.j2
       dest: /home/stack/templates/network-environment.yaml
+    - src: templates/controller-params.yaml.j2
+      dest: /home/stack/templates/environments/controller-params.yaml

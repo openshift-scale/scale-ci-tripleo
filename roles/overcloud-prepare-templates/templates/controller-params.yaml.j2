@@ -4,6 +4,9 @@ parameter_defaults:
   NovaSchedulerAvailableFilters: ['nova.scheduler.filters.all_filters']
   NovaSchedulerMaxAttempts: 10
   ControllerExtraConfig:
+{% if use_local_dns_server|bool %}
+    neutron::agents::dhcp::dnsmasq_local_resolv: true
+{% endif %}
     nova::api::pci_alias:
       - name: 'nvme'
         product_id: 'a804'
