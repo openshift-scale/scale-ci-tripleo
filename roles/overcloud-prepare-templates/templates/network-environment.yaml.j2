@@ -34,3 +34,7 @@ parameter_defaults:
   ManagementNetworkVlanID: 305
   ExternalNetworkVlanID: "{{external_vlan}}"
   # Set to "br-ex" if using floating IPs on native VLAN on bridge br-ex
+{% if use_local_dns_server|bool %}
+  NeutronDhcpAgentDnsmasqDnsServers:
+    - {{dns_server}}
+{% endif %}
